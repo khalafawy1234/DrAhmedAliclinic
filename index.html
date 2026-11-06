@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة دكتور أحمد علي خلف الله - نساء وتوليد</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #0d6efd; /* أزرق احترافي */
+            --secondary-color: #e6f0fa; /* أزرق فاتح جداً للخلفيات */
+            --text-color: #2b2d42;
+            --white: #ffffff;
+            --dark-blue: #0a58ca;
+            --green-accent: #198754; /* أخضر طبي مريح */
+            --whatsapp-color: #25d366;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .top-bar {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            font-size: 13px;
+            padding: 8px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--green-accent);
+        }
+        
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.sticky-scrolled {
+            padding: 5px 0;
+            background-color: var(--white);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            line-height: 1.3;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 13px;
+            color: var(--green-accent);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--green-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #f4f9f4 100%);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid rgba(25, 135, 84, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+            color: #4a5568;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 88, 202, 0.4);
+        }
+
+        .btn-green {
+            background-color: var(--green-accent);
+            box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+            margin-right: 10px;
+        }
+
+        .btn-green:hover {
+            background-color: #146c43;
+            box-shadow: 0 8px 25px rgba(20, 108, 67, 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            margin-top: 15px;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #20ba56;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: var(--dark-blue);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--green-accent);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            min-width: 180px;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--green-accent);
+            display: block;
+        }
+
+        .services-grid, .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card, .info-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.01);
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(13, 110, 253, 0.1);
+            border-bottom: 3px solid var(--green-accent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(25, 135, 84, 0.1);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .service-icon, .info-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card h3, .info-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .info-card a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .info-card a:hover {
+            color: var(--primary-color);
+        }
+
+        .booking-container {
+            background-color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--green-accent);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
+            background-color: #fdfdfd;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        footer {
+            background-color: #1a202c;
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            font-size: 14px;
+            border-top: 4px solid var(--green-accent);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+        
+        footer a {
+            color: #63b3ed;
+            text-decoration: none;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 20px; text-align: center; }
+            .nav-links { gap: 15px; }
+            .hero h1 { font-size: 30px; }
+            .stats-container { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="btnTop">⬆</div>
+
+    <div class="top-bar">
+        📍 الإسكندرية - الهانوفيل | 📞 الحجز الهاتفي: <a href="tel:01055564690">01055564690</a> | 💬 واتساب مباشر: <a href="https://wa.me/201277078784" target="_blank">01277078784</a>
+    </div>
+
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                د. أحمد علي خلف الله
+                <span>استشاري أمراض النساء والتوليد</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">عن العيادة</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#info">المواعيد والاتصال</a></li>
+                <li><a href="#book">حجز موعد</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>رعايتكِ الصحية هي أولويتنا القصوى</h1>
+        <p>مرحباً بكم في عيادة الدكتور أحمد علي خلف الله. نقدم رعاية طبية متكاملة ومتقدمة في أمراض النساء والتوليد لضمان سلامتكنّ وراحتكنّ التامة بأحدث البروتوكولات العلاجية.</p>
+        <a href="#book" class="btn btn-green">📅 احجزي موعدكِ إلكترونياً</a>
+        <br>
+        <a href="https://wa.me/201277078784" target="_blank" class="btn btn-whatsapp">💬 حجز فوري عبر واتساب</a>
+    </section>
+
+    <section id="about" class="section reveal">
+        <h2 class="section-title">عن العيادة</h2>
+        <p style="max-width: 800px; margin: 0 auto; font-size: 17px; color: #4a5568;">
+            تحت إشراف الدكتور أحمد علي خلف الله، نحرص على توفير بيئة آمنة تضمن الخصوصية الكاملة والرعاية الفائقة. نتميز بتقديم خدمات تشخيصية وعلاجية شاملة تغطي كافة المراحل العمرية للمرأة مع الاهتمام الدقيق بحالات الحمل الحرِج والأورام النسائية.
+        </p>
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-target="15">0</span>
+                <p>سنوات الخبرة</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="5000">0</span>
+                <p>حالة ناجحة ومطمئنة</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section reveal">
+        <h2 class="section-title">خدماتنا الطبية المعتمدة</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🩺</span>
+                <h3>أمراض النساء والتوليد</h3>
+                <p>تشخيص وعلاج الاضطرابات الهرمونية وتأخر الإنجاب وكافة أمراض النساء بأحدث الطرق.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🤰</span>
+                <h3>متابعة الحمل الطبيعي</h3>
+                <p>رعاية وقائية شاملة للأم والاطمئنان الدوري المستمر على نبو ومؤشرات الجنين الحيوية.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🚨</span>
+                <h3>رعاية الحمل الحرِج</h3>
+                <p>بروتوكولات مكثفة وخاصة لمتابعة حالات الإجهاض المتكرر، تسمم الحمل، وضغط الدم المرتفع.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🎗️</span>
+                <h3>الأورام النسائية</h3>
+                <p>الفحص المبكر والوقائي لأورام الرحم والمبيضين وتقديم المتابعة العلاجية المتخصصة بكفاءة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="section reveal" style="background-color: #f1f5f9; padding: 50px 20px; border-radius: 15px;">
+        <h2 class="section-title">المواعيد والاتصال</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <span class="info-icon">📍</span>
+                <h3>عنوان العيادة</h3>
+                <p>الإسكندرية - الهانوفيل<br>بجوار مطعم أبو راوية<br>أعلى صيدلية د. دعاء القاضي</p>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">⏰</span>
+                <h3>مواعيد العمل</h3>
+                <p>من الساعة <b>7:00 مساءً</b> حتى <b>10:00 مساءً</b><br>يومياً<br><span style="color: #c53030; font-weight: bold;">عدا يومي الخميس والجمعة</span></p>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">📞</span>
+                <h3>اتصلي بنا مباشر</h3>
+                <p>للحجز والاستفسار الهاتفي:<br><a href="tel:01055564690">01055564690</a></p>
+                <p style="margin-top: 10px;">للتواصل الفوري عبر الواتساب:<br><a href="https://wa.me/201277078784" target="_blank" style="color: var(--whatsapp-color);">01277078784 💬</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="section reveal">
+        <h2 class="section-title">طلب حجز موعد إلكتروني</h2>
+        <div class="booking-container">
+            <form action="https://formspree.io/f/Khalafawy1234@gmail.com" method="POST" id="bookingForm">
+                <input type="hidden" name="_subject" value="طلب حجز موعد جديد - عيادة د. أحمد خلف الله">
+                
+                <div class="form-group">
+                    <label for="name">الاسم الكامل:</label>
+                    <input type="text" id="name" name="اسم المريضة" required placeholder="أدخلي اسمكِ الثلاثي">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف:</label>
+                    <input type="tel" id="phone" name="رقم الهاتف" required placeholder="01xxxxxxxxx">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">الخدمة المطلوبة:</label>
+                    <select id="service" name="الخدمة المطلوبة" required>
+                        <option value="">اختاري الخدمة المطلوب حجزها...</option>
+                        <option value="أمراض النساء والتوليد">أمراض النساء والتوليد</option>
+                        <option value="متابعة حمل طبيعي">متابعة حمل طبيعي</option>
+                        <option value="رعاية حمل حرج">رعاية حمل حرج</option>
+                        <option value="أورام نسائية">أورام نسائية</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">التاريخ المفضل:</label>
+                    <input type="date" id="date" name="التاريخ المفضل" required>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; border-radius: 8px;">تأكيد الحجز المبدئي وإرسال الطلب</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p><b>عيادة دكتور أحمد علي خلف الله</b> - استشاري أمراض النساء والتوليد</p>
+        <p>الهانوفيل، الإسكندرية | حجز: <a href="tel:01055564690">01055564690</a> | واتساب: <a href="https://wa.me/201277078784" target="_blank">01277078784</a></p>
+        <p style="font-size: 12px; margin-top: 15px; color: #718096;">&copy; 2026 جميع الحقوق محفوظة للعيادة.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById("header");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("sticky-scrolled");
+                } else {
+                    header.classList.remove("sticky-scrolled");
+                }
+            });
+
+            const dateInput = document.getElementById("date");
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            const reveals = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                reveals.forEach(element => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    if (elementTop < windowHeight - elementVisible) {
+                        element.classList.add("active");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+
+            const counters = document.querySelectorAll(".stat-number");
+            let cuntedStarted = false;
+            const startCounting = () => {
+                counters.forEach(counter => {
+                    counter.innerText = '0';
+                    const updateCounter = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const c = +counter.innerText;
+                        const increment = target / 80;
+                        if (c < target) {
+                            counter.innerText = Math.ceil(c + increment);
+                            setTimeout(updateCounter, 25);
+                        } else {
+                            counter.innerText = target + "+";
+                        }
+                    };
+                    updateCounter();
+                });
+            };
+
+            window.addEventListener("scroll", () => {
+                const aboutSec = document.getElementById("about");
+                if(aboutSec) {
+                    const position = aboutSec.getBoundingClientRect().top;
+                    if(position < window.innerHeight && !cuntedStarted) {
+                        startCounting();
+                        cuntedStarted = true;
+                    }
+                }
+            });
+
+            const btnTop = document.getElementById("btnTop");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    btnTop.classList.add("show");
+                } else {
+                    btnTop.classList.remove("show");
+                }
+            });
+            btnTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            const bookingForm = document.getElementById("bookingForm");
+            bookingForm.addEventListener("submit", (e) => {
+                const phone = document.getElementById("phone").value;
+                const name = document.getElementById("name").value;
+                if(phone.length < 11) {
+                    e.preventDefault();
+                    alert("⚠️ يرجى التأكد من كتابة رقم الهاتف بشكل صحيح المكون من 11 رقماً.");
+                } else if (name.trim().split(" ").length < 2) {
+                    e.preventDefault();
+                    alert("⚠️ يرجى كتابة الاسم ثنائياً أو ثلاثياً على الأقل لسهولة التسجيل بالعيادة.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
